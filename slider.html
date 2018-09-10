@@ -46,9 +46,9 @@
 <br>
 
 <div>
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
+  <span class="rond"></span> 
+  <span class="rond"></span> 
+  <span class="rond"></span> 
 </div>
 
 <script>
@@ -58,17 +58,17 @@ slidetest();
 function slidetest() {
     var i;
     var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("dot");
+    var rond = document.getElementsByClassName("rond");
     for (i = 0; i < slides.length; i++) {
        slides[i].style.display = "none";  
     }
     a++;
     if (a > slides.length) {a = 1}    
-    for (i = 0; i < dots.length; i++) {
+    for (i = 0; i < rond.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     slides[a-1].style.display = "block";  
-    dots[a-1].className += " active";
+    rond[a-1].className += " active";
     setTimeout(slidetest, 3000);
 }
 </script>
