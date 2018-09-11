@@ -1,82 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Slideur</title>
+	<title>Slider</title>
 </head>
 <body>
+<br><br><br><br>
 
-<style>
+<center>	<img name="slide" width="500" height="300"></center>
 
-/* Slideshow container */
-.slideshow-container
- {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+<script type="text/javascript">
+	var i = 0; 			// Debut
+var images = [];	// Images Array
+
+	 
+// Image liste
+images[0] = "BG.jpg";
+images[1] = "BG2.jpg";
+images[2] = "BG3.jpg";
+
+
+
+
+function changeImg(){
+	document.slide.src = images[i];
+
+	// avant la fin de l'index ajoute 1
+	if(i < images.length - 1){
+		alert(images.length);
+	  // index i
+	  i++; 
+	} else { 
+		// Rtour a la 1 image
+		i = 0;
+	}
+
+	
+	setTimeout("changeImg()", 3000);
 }
 
-</style>
-
-
-</head>
-<body>
-<center><br><br><br><br><br><br>
-
-<div class="slideshow-container">
-
-<div class="mySlides">
-  
-  <img src="img/im1.jpg" style="width:60%">
- 
-</div>
-
-<div class="mySlides">
-
-  <img src="img/im2.jpg" style="width:60%">
- 
-</div>
-
-<div class="mySlides">
- 
-  <img src="img/im3.jpg" style="width:60%">
-
-</div>
-
-</div>
-<br>
-
-<div>
-  <span class="rond"></span> 
-  <span class="rond"></span> 
-  <span class="rond"></span> 
-</div>
-
-<script>
-var a = 0;
-slidetest();
-
-function slidetest() {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var rond = document.getElementsByClassName("rond");
-    for (i = 0; i < slides.length; i++) {
-       slides[i].style.display = "none";  
-    }
-    a++;
-    if (a > slides.length) {a = 1}    
-    for (i = 0; i < rond.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[a-1].style.display = "block";  
-    rond[a-1].className += " active";
-    setTimeout(slidetest, 3000);
-}
+//chargement au debut
+window.onload=changeImg;
 </script>
-</center>
-
-</body>
-</html> 
-
-
 </body>
 </html>
